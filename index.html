@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hello, Twentysomethings — 12 November 2026</title>
+<meta name="description" content="An online event about personal growth and intentional living in your twenties. 12 November 2026, 7:00 PM WAT.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E💙%3C/text%3E%3C/svg%3E">
+<style>
+:root{--blue:#245BFF;--navy:#F4F8FF;--navy2:#E3ECFF;--sky:#3F5FB8;--ink:#0F2A8A;--card:#fff;--line:#CFDBFF;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*::before,*::after{box-sizing:inherit}html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{margin:0;background:var(--navy);color:var(--ink);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+h1,h2,h3{line-height:1.1;margin:0 0 .5em;letter-spacing:-.02em}h1{font-size:clamp(2.4rem,9vw,4.6rem);font-weight:800}h2{font-size:clamp(1.8rem,5vw,2.8rem)}
+a{color:inherit}:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}section{padding:72px 0}
+nav{position:sticky;top:0;z-index:20;background:rgba(244,248,255,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:12px}
+.brand{font-weight:800;text-decoration:none}.links{display:flex;gap:18px;align-items:center}.links a{text-decoration:none;color:var(--sky);font-size:.95rem}.links a:hover{color:var(--blue)}
+.btn{display:inline-block;border:0;cursor:pointer;background:var(--blue);color:#fff;font:700 1rem inherit;font-family:inherit;padding:14px 26px;border-radius:999px;text-decoration:none;transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(0,0,0,.3)}.btn.blue{background:var(--blue);color:#fff}.btn[disabled]{opacity:.6;cursor:wait}.btn.sm{padding:9px 18px;font-size:.9rem}
+@media(max-width:640px){.links a:not(.btn){display:none}}
+.hero{background:radial-gradient(800px 420px at 50% 0,#BCD0FF,transparent 70%),var(--navy);padding:72px 0 80px;text-align:center}.hero .lead{margin:0 auto 24px}h1{color:var(--blue)}.theme{font-size:clamp(1.2rem,4vw,1.8rem);font-weight:700;margin:0 0 16px}.av{width:120px;height:120px;border-radius:50%;background:var(--blue);color:#fff;display:grid;place-items:center;font:800 2.2rem system-ui}
+
+.pill{display:inline-block;background:var(--card);border:1px solid var(--line);padding:6px 14px;border-radius:999px;font-size:.9rem;margin-bottom:18px}
+.hero p.lead{font-size:1.2rem;color:var(--sky);max-width:30em}.hero img{width:100%;max-width:460px;border-radius:32px;display:block;margin:auto;box-shadow:0 30px 80px rgba(36,91,255,.45)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:24px;transition:transform .25s,border-color .25s}.card:hover{transform:translateY(-4px);border-color:var(--sky)}
+.grid{display:grid;gap:20px}@media(min-width:720px){.grid.two{grid-template-columns:1fr 1fr}}
+.host{display:grid;gap:28px;align-items:center}@media(min-width:720px){.host{grid-template-columns:240px 1fr}}.host img{width:100%;max-width:260px;border-radius:24px;aspect-ratio:1;object-fit:cover}
+.alt{background:linear-gradient(180deg,var(--navy2),var(--navy))}
+.sp-img{aspect-ratio:4/5;border-radius:16px;background:linear-gradient(135deg,var(--blue),var(--navy2));display:grid;place-items:center;font-size:3rem;margin-bottom:14px;overflow:hidden}.sp-img img{object-position:top;width:100%;height:100%;object-fit:cover}
+.heart{background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:8px 16px;cursor:pointer;font:inherit}.heart[aria-pressed=true]{color:#fff;background:var(--blue);border-color:var(--blue)}
+form{display:grid;gap:16px}label{display:grid;gap:6px;font-weight:600;font-size:.95rem}
+input,select,textarea{font:inherit;padding:13px 14px;border-radius:14px;border:1.5px solid var(--line);background:rgba(255,255,255,.95);color:#0a1033;width:100%}
+.err{color:#C62828;font-weight:500;font-size:.85rem;min-height:0}.chk{display:flex;gap:10px;align-items:flex-start;font-weight:400}.chk input{width:auto;margin-top:5px}
+.ok{background:rgba(60,200,120,.15);border:1px solid #4ade80;border-radius:16px;padding:20px}
+.pin{border-color:#E0A100!important}.muted{color:var(--sky)}.stars{color:#E0A100;letter-spacing:2px}
+footer{border-top:1px solid var(--line);padding:36px 0;color:var(--sky);font-size:.95rem}
+.reveal{opacity:0;transform:translateY(24px);transition:.7s}.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+#admin{display:none;background:#fff;color:#0a1033;position:fixed;inset:0;z-index:50;overflow:auto;padding:20px}#admin.open{display:block}
+#admin input,#admin textarea,#admin select{border-color:#c9d3f5}#admin table{border-collapse:collapse;width:100%;font-size:.85rem}#admin td,#admin th{border-bottom:1px solid #e3e8fb;padding:6px;text-align:left}
+#admin .box{border:1px solid #dfe5fb;border-radius:16px;padding:16px;margin:14px 0;display:grid;gap:10px}.scroll{overflow-x:auto}
+</style></head><body>
+<nav><div class="wrap"><a class="brand" href="#top">Hello, Twentysomethings</a>
+<div class="links"><a href="#about">About</a><a href="#speakers">Speakers</a><a href="#register">Register</a><a href="#reviews">Reviews</a><a class="btn blue sm" href="#register">Register Now</a></div></div></nav>
+<header class="hero" id="top"><div class="wrap">
+<span class="pill">📅 12 November 2026 · 7:00 PM WAT · Online</span>
+<h1 style="font-size:clamp(2.8rem,12vw,6rem);font-weight:900;letter-spacing:-.03em">Hello,<br>Twentysomethings!</h1>
+<p class="theme">Theme: Beyond the Flex, Building Your Youthful Years</p>
+<p class="lead">Congratulations on taking the next step towards becoming the greatest version of yourself.</p>
+<p><a class="btn" href="#register">Register Now</a></p></div></header>
+
+<section id="host"><div class="wrap reveal"><h2>Your Host &amp; Moderator</h2>
+<div class="grid two"><article class="card"><div class="sp-img"><img id="hostImg" src="assets/host.jpg" alt="Chioma Nwagwu, host and moderator"></div><h3>Chioma Nwagwu</h3><p class="muted"><strong>Host &amp; Moderator</strong></p></article><article class="card" style="display:flex;flex-direction:column;justify-content:center"><p style="font-size:1.1rem;margin:0" id="hostBio">I’m Chioma Nwagwu, an AI and Automation Specialist. I build automations to help startups create workflows that improve the way they work. Beyond tech, I’m a youth advocate passionate about personal development and intentional growth. I can’t be growing and you are not growing. We must grow together.</p></article></div></div></section>
+
+<section id="about" class="alt"><div class="wrap reveal"><h2>About the event</h2>
+<p class="theme" style="color:var(--blue)">Beyond the Flex, Building Your Youthful Years</p><p style="max-width:42em;font-size:1.15rem" class="muted">Hello, Twentysomethings is a space for young adults to learn, reflect, connect and become more intentional about their twenties.</p>
+<div class="grid two" style="margin-top:24px"><div class="card"><h3>Learn</h3><p class="muted">Practical ideas for growing with purpose.</p></div><div class="card"><h3>Reflect &amp; connect</h3><p class="muted">Pause, take stock, and meet people on the same journey.</p></div></div></div></section>
+
+<section id="speakers"><div class="wrap reveal"><h2>Speakers</h2><div class="grid two" id="spGrid"></div></div></section>
+
+<section id="register" class="alt"><div class="wrap reveal" style="max-width:640px"><h2>Reserve your spot</h2>
+<p class="muted">Free to join. Anyone with this link can register.</p>
+<form id="reg" novalidate>
+<label>Full name<input name="name" autocomplete="name" required><span class="err" data-e="name"></span></label>
+<label>Email address<input name="email" type="email" autocomplete="email" required><span class="err" data-e="email"></span></label>
+<label>Phone number<input name="phone" type="tel" autocomplete="tel" placeholder="+234 801 234 5678" required><span class="err" data-e="phone"></span></label>
+<label>WhatsApp number<input name="wa" type="tel" placeholder="+234 801 234 5678" required><span class="err" data-e="wa"></span></label>
+<label>Age range<select name="age" required><option value="">Select…</option><option>18–20</option><option>21–24</option><option>25–29</option><option>30+</option></select><span class="err" data-e="age"></span></label>
+<label>What do you hope to learn?<textarea name="learn" rows="3" maxlength="400" required></textarea><span class="err" data-e="learn"></span></label>
+<label class="chk"><input type="checkbox" name="consent"><span>I agree that my contact details may be used to send me event updates and reminders. They will not be shown publicly.</span></label><span class="err" data-e="consent"></span>
+<button class="btn" id="regBtn" type="submit">Register Now</button><div id="regMsg" role="status"></div></form></div></section>
+
+<section id="reviews"><div class="wrap reveal"><h2>Reviews</h2><div id="revBox"></div></div></section>
+<footer><div class="wrap"><strong>Hello, Twentysomethings</strong> · 12 November 2026, 7:00 PM WAT<br><a href="#about">About</a> · <a href="#speakers">Speakers</a> · <a href="#register">Register</a> · <a href="#reviews">Reviews</a> · <a href="#admin">Admin</a></div></footer>
+
+<div id="admin"><div style="max-width:900px;margin:auto"><button class="btn blue sm" onclick="location.hash='top'">← Back to site</button>
+<h2>Admin dashboard</h2>
+<div id="adm"></div></div></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script>
+const CFG={url:"https://rcrqjzrfripausrsymyl.supabase.co",key:"sb_publishable_erfObd3wVkysElwIpuEBNw_jx0LD2pz"};
+const sb=supabase.createClient(CFG.url,CFG.key);
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+let SP=[],ST={},REV=[],HC={};
+const tok=(()=>{try{let t=localStorage.getItem("h20s_tok");if(!t){t=crypto.randomUUID();localStorage.setItem("h20s_tok",t)}return t}catch(e){return crypto.randomUUID()}})();
+const mine=()=>{try{return JSON.parse(localStorage.getItem("h20s_hearts")||"{}")}catch(e){return{}}};
+const setMine=m=>{try{localStorage.setItem("h20s_hearts",JSON.stringify(m))}catch(e){}};
+const notice=t=>{let b=$("#notice");if(!b){b=document.createElement("div");b.id="notice";b.setAttribute("role","alert");b.style.cssText="position:fixed;bottom:16px;left:16px;right:16px;max-width:520px;margin:auto;background:#0F2A8A;color:#fff;padding:12px 16px;border-radius:14px;z-index:60";document.body.append(b)}b.textContent=t;b.style.display=t?"block":"none";if(t)setTimeout(()=>b.style.display="none",5000)};
+
+async function load(){
+  try{
+    const [s,st,r,h]=await Promise.all([sb.from("speakers").select("*").order("sort"),sb.from("settings").select("*"),sb.from("reviews").select("*").order("pinned",{ascending:false}).order("created_at",{ascending:false}),sb.rpc("heart_counts")]);
+    if(s.error||st.error||r.error)throw (s.error||st.error||r.error);
+    SP=s.data;ST=Object.fromEntries(st.data.map(x=>[x.key,x.value]));REV=r.data;HC=Object.fromEntries((h.data||[]).map(x=>[x.speaker_id,x.n]));
+    if(ST.host_photo)$("#hostImg").src=ST.host_photo;if(ST.host_bio)$("#hostBio").textContent=ST.host_bio;
+    drawSp();drawRev();
+  }catch(e){$("#spGrid").innerHTML='<p>We couldn’t load this content. Check your connection and <a href="#" onclick="load();return false">try again</a>.</p>';drawRev()}
+}
+function drawSp(){const m=mine();$("#spGrid").innerHTML=SP.length?SP.map(s=>`<article class="card"><div class="sp-img">${s.image_url?`<img src="${esc(s.image_url)}" alt="${esc(s.name)}">`:"🎤"}</div><h3>${esc(s.name)}</h3><p class="muted"><strong>${esc(s.topic)}</strong></p><p>${esc(s.bio)}</p><p class="muted">${esc(s.description)}</p><button class="heart" data-i="${s.id}" aria-pressed="${!!m[s.id]}" aria-label="Like ${esc(s.name)}">💙 <span>${HC[s.id]||0}</span></button></article>`).join(""):"<p class='muted'>Speakers coming soon.</p>"}
+$("#spGrid").onclick=async e=>{const b=e.target.closest(".heart");if(!b)return;const id=+b.dataset.i,m=mine();if(m[id])return;
+  const {data,error}=await sb.rpc("heart_speaker",{p_speaker:id,p_token:tok});if(error)return notice("Couldn’t save your reaction. Try again.");
+  m[id]=1;setMine(m);HC[id]=data;drawSp()};
+function drawRev(){const box=$("#revBox");
+  if(ST.reviews_open!=="true"){box.innerHTML='<div class="card"><p class="muted" style="margin:0">Attendee reviews will open after the event. Come back on 12 November!</p></div>';return}
+  box.innerHTML=`<form id="rf"><label>Name<input name="n" maxlength="60" required></label><label>Rating<select name="r"><option>5</option><option>4</option><option>3</option><option>2</option><option>1</option></select></label><label>Your review<textarea name="x" rows="3" maxlength="500" required></textarea></label><input name="hp" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true"><button class="btn" type="submit">Post review</button></form><div class="grid two" style="margin-top:24px">${REV.length?REV.map(r=>`<div class="card ${r.pinned?"pin":""}">${r.pinned?"📌 Pinned<br>":""}<span class="stars">${"★".repeat(r.rating)}${"☆".repeat(5-r.rating)}</span><p>${esc(r.body)}</p><small class="muted">— ${esc(r.name)} · <a href="#reviews" data-rep="${r.id}">${r.reported?"Reported":"Report"}</a></small></div>`).join(""):'<p class="muted">No reviews yet. Be the first!</p>'}</div>`;
+  $("#rf").onsubmit=async e=>{e.preventDefault();const f=e.target;if(f.hp.value)return;const btn=f.querySelector("button");if(btn.disabled)return;btn.disabled=true;
+    const {error}=await sb.rpc("submit_review",{p_name:f.n.value,p_rating:+f.r.value,p_body:f.x.value});btn.disabled=false;
+    if(error)return notice(error.message.includes("Duplicate")?"You already posted that review.":"Couldn’t post your review. Try again.");await load()};
+  box.querySelectorAll("[data-rep]").forEach(a=>a.onclick=async e=>{e.preventDefault();await sb.rpc("report_review",{p_id:a.dataset.rep});notice("Thanks, we’ll take a look.");a.textContent="Reported"})}
+const norm={email:v=>v.trim().toLowerCase(),phone:v=>{v=v.replace(/[\s\-().]/g,"");if(/^0\d{10}$/.test(v))v="+234"+v.slice(1);return v}};
+$("#reg").onsubmit=async e=>{e.preventDefault();const f=e.target,btn=$("#regBtn");if(btn.disabled)return;const E={};
+  const name=f.name.value.trim(),email=norm.email(f.email.value),phone=norm.phone(f.phone.value),wa=norm.phone(f.wa.value);
+  if(name.length<2)E.name="Please enter your full name.";
+  if(!/^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(email))E.email="Enter a valid email address.";
+  if(!/^\+?\d{7,15}$/.test(phone))E.phone="Enter a valid phone number.";
+  if(!/^\+?\d{7,15}$/.test(wa))E.wa="Enter a valid WhatsApp number.";
+  if(!f.age.value)E.age="Choose an age range.";
+  if(f.learn.value.trim().length<3)E.learn="Tell us what you hope to learn.";
+  if(!f.consent.checked)E.consent="Please agree to continue.";
+  document.querySelectorAll(".err").forEach(s=>s.textContent=E[s.dataset.e]||"");
+  if(Object.keys(E).length)return;
+  btn.disabled=true;btn.textContent="Registering…";
+  try{const {data,error}=await sb.rpc("register_attendee",{p_name:name,p_email:email,p_phone:phone,p_whatsapp:wa,p_age:f.age.value,p_goal:f.learn.value.trim(),p_consent:true});if(error)throw error;
+    const link=data&&/^https:\/\/chat\.whatsapp\.com\//.test(data.link||"")?`<a class="btn" href="${esc(data.link)}" target="_blank" rel="noopener">Join the WhatsApp group</a>`:'<p class="muted">WhatsApp group link coming soon.</p>';
+    $("#regMsg").innerHTML=`<div class="ok"><strong>${data&&data.already?"You’re already registered, ":"You’re in, "}${esc(name.split(" ")[0])}! 🎉</strong><p>See you on 12 November at 7:00 PM WAT.</p>${link}</div>`;f.style.display="none"}
+  catch(err){$("#regMsg").innerHTML='<p class="err" role="alert">Something went wrong. Check your details and connection, then try again.</p>';btn.disabled=false;btn.textContent="Register Now"}};
+
+async function drawAdm(){const a=$("#adm");a.textContent="Loading…";
+  try{
+  const {data:{session}}=await sb.auth.getSession();
+  if(!session){a.innerHTML=`<form id="lf" class="box"><b>Owner login</b><input id="le" type="email" placeholder="Email" autocomplete="username" required><input id="lp" type="password" placeholder="Password" autocomplete="current-password" required><button class="btn blue sm">Sign in</button><span id="lm" role="alert"></span></form>`;
+    $("#lf").onsubmit=async e=>{e.preventDefault();const {error}=await sb.auth.signInWithPassword({email:$("#le").value.trim(),password:$("#lp").value});if(error)$("#lm").textContent="Sign-in failed.";else drawAdm()};return}
+  const {data:ok}=await sb.rpc("is_admin");
+  if(!ok){a.innerHTML='<p>This account is not authorised.</p><button class="btn blue sm" id="so">Sign out</button>';$("#so").onclick=async()=>{await sb.auth.signOut();drawAdm()};return}
+  const [rg,vs,ps,rv,sp]=await Promise.all([sb.from("registrations").select("*").order("created_at",{ascending:false}),sb.from("visits").select("*"),sb.from("private_settings").select("*"),sb.from("reviews").select("*").order("created_at",{ascending:false}),sb.from("speakers").select("*").order("sort")]);
+  const regs=rg.data||[],tot=(vs.data||[]).reduce((s,v)=>s+v.total,0),uq=(vs.data||[]).reduce((s,v)=>s+v.uniq,0),P=Object.fromEntries((ps.data||[]).map(x=>[x.key,x.value]));
+  const hb=await sb.rpc("heart_counts"),H=Object.fromEntries((hb.data||[]).map(x=>[x.speaker_id,x.n]));
+  a.innerHTML=`<div class="box"><b>Overview</b><div>Registrations: ${regs.length} · Total visits: ${tot} · Unique browsers (per day, summed): ${uq} · Conversion: ${uq?(regs.length/uq*100).toFixed(1)+"%":"n/a"}</div><small>Unique counts are per browser per day, not per person. Visitors who don’t register are never identified.</small></div>
+  <div class="box"><b>Settings</b><label>WhatsApp group link<input id="aw" value="${esc(P.whatsapp_link)}"></label><label class="chk"><input type="checkbox" id="ao" ${ST.reviews_open==="true"?"checked":""}> Reviews open</label><label>Host bio<textarea id="ab" rows="4">${esc(ST.host_bio)}</textarea></label><label>Host photo<input type="file" accept="image/*" id="ap"></label><button class="btn blue sm" id="as">Save settings</button></div>
+  ${(sp.data||[]).map(s=>`<div class="box"><b>Speaker (${H[s.id]||0} 💙)</b><input data-k="name" data-i="${s.id}" value="${esc(s.name)}"><input data-k="topic" data-i="${s.id}" value="${esc(s.topic)}"><textarea data-k="bio" data-i="${s.id}" rows="2">${esc(s.bio)}</textarea><textarea data-k="description" data-i="${s.id}" rows="3">${esc(s.description)}</textarea><input type="file" accept="image/*" data-p="${s.id}"></div>`).join("")}
+  <div class="box"><b>Reviews</b>${(rv.data||[]).map(r=>`<div>${esc(r.name)} (${r.rating}★): ${esc(r.body)} ${r.reported?"⚠️ reported":""} <button data-pin="${r.id}" data-v="${r.pinned}">${r.pinned?"Unpin":"Pin"}</button> <button data-del="${r.id}">Delete</button></div>`).join("")||"None yet."}</div>
+  <div class="box"><b>Registrations</b><button class="btn blue sm" id="csv">Export CSV</button><input id="q" placeholder="Search…"><div class="scroll"><table id="tb"></table></div></div><button class="btn blue sm" id="so">Sign out</button>`;
+  const tb=()=>{const q=$("#q").value.toLowerCase();$("#tb").innerHTML="<tr><th>Name<th>Email<th>Phone<th>WhatsApp<th>Age<th>Goal<th>When</tr>"+regs.filter(r=>JSON.stringify(r).toLowerCase().includes(q)).map(r=>`<tr><td>${esc(r.full_name)}<td>${esc(r.email)}<td>${esc(r.phone)}<td>${esc(r.whatsapp)}<td>${esc(r.age_range)}<td>${esc(r.goal)}<td>${r.created_at.slice(0,10)}</tr>`).join("")};tb();$("#q").oninput=tb;
+  const done=async(p,msg)=>{const {error}=await p;if(error)alert("Failed: "+error.message);else{if(msg)alert(msg);await load();drawAdm()}};
+  const up=async(file,name)=>{const ext=(file.name.split(".").pop()||"jpg").toLowerCase().replace(/[^a-z0-9]/g,"");const path=`${name}-${Date.now()}.${ext}`;const {error}=await sb.storage.from("public-images").upload(path,file,{upsert:true});if(error)throw error;return sb.storage.from("public-images").getPublicUrl(path).data.publicUrl};
+  $("#as").onclick=async()=>{try{let rows=[{key:"reviews_open",value:$("#ao").checked?"true":"false"},{key:"host_bio",value:$("#ab").value}];const f=$("#ap").files[0];if(f)rows.push({key:"host_photo",value:await up(f,"host")});
+    const r1=await sb.from("settings").upsert(rows),r2=await sb.from("private_settings").upsert([{key:"whatsapp_link",value:$("#aw").value.trim()}]);if(r1.error||r2.error)throw (r1.error||r2.error);alert("Saved");await load();drawAdm()}catch(e){alert("Failed: "+e.message)}};
+  a.querySelectorAll("[data-k]").forEach(el=>el.onchange=()=>done(sb.from("speakers").update({[el.dataset.k]:el.value}).eq("id",el.dataset.i)));
+  a.querySelectorAll("[data-p]").forEach(el=>el.onchange=async()=>{try{const u=await up(el.files[0],"speaker-"+el.dataset.p);done(sb.from("speakers").update({image_url:u}).eq("id",el.dataset.p),"Photo updated")}catch(e){alert("Upload failed: "+e.message)}});
+  a.querySelectorAll("[data-pin]").forEach(b=>b.onclick=()=>done(sb.from("reviews").update({pinned:b.dataset.v!=="true"}).eq("id",b.dataset.pin)));
+  a.querySelectorAll("[data-del]").forEach(b=>b.onclick=()=>confirm("Delete this review?")&&done(sb.from("reviews").delete().eq("id",b.dataset.del)));
+  $("#so").onclick=async()=>{await sb.auth.signOut();drawAdm()};
+  $("#csv").onclick=()=>{const q=v=>'"'+String(v).replace(/"/g,'""')+'"';const rows=[["name","email","phone","whatsapp","age","goal","time"],...regs.map(r=>[r.full_name,r.email,r.phone,r.whatsapp,r.age_range,r.goal,r.created_at])].map(r=>r.map(q).join(",")).join("\n");const u=URL.createObjectURL(new Blob([rows],{type:"text/csv"})),l=document.createElement("a");l.href=u;l.download="registrations.csv";l.click()};
+  }catch(e){a.textContent="Couldn’t load the dashboard. Check your connection and refresh."}}
+function route(){const on=location.hash==="#admin";$("#admin").classList.toggle("open",on);if(on)drawAdm()}
+addEventListener("hashchange",route);route();load();
+try{const seen=localStorage.getItem("h20s_seen");localStorage.setItem("h20s_seen","1");sb.rpc("track_visit",{p_new:!seen})}catch(e){}
+const io=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add("in")),{threshold:.1});document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
+</script></body></html>
