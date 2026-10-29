@@ -67,7 +67,7 @@ footer{border-top:1px solid var(--line);padding:36px 0;color:var(--sky);font-siz
 <label>Age range<select name="age" required><option value="">Select…</option><option>18–20</option><option>21–24</option><option>25–29</option><option>30+</option></select><span class="err" data-e="age"></span></label>
 <label>What do you hope to learn?<textarea name="learn" rows="3" maxlength="400" required></textarea><span class="err" data-e="learn"></span></label>
 <label class="chk"><input type="checkbox" name="consent"><span>I agree that my contact details may be used to send me event updates and reminders. They will not be shown publicly.</span></label><span class="err" data-e="consent"></span>
-<button class="btn" id="regBtn" type="submit">Register Now</button><div id="regMsg" role="status"></div></form></div></section>
+<button class="btn" id="regBtn" type="submit">Register Now</button></form><div id="regMsg" role="status" style="margin-top:16px"></div></div></section>
 
 <section id="reviews"><div class="wrap reveal"><h2>Reviews</h2><div id="revBox"></div></div></section>
 <footer><div class="wrap"><strong>Hello, Twentysomethings</strong> · 12 November 2026, 7:00 PM WAT<br><a href="#about">About</a> · <a href="#speakers">Speakers</a> · <a href="#register">Register</a> · <a href="#reviews">Reviews</a> · <a href="#admin">Admin</a></div></footer>
@@ -101,8 +101,9 @@ function drawSp(){const m=mine();$("#spGrid").innerHTML=SP.length?SP.map(s=>`<ar
 $("#spGrid").onclick=async e=>{const b=e.target.closest(".heart");if(!b)return;const id=+b.dataset.i,m=mine();if(m[id])return;
   const {data,error}=await sb.rpc("heart_speaker",{p_speaker:id,p_token:tok});if(error)return notice("Couldn’t save your reaction. Try again.");
   m[id]=1;setMine(m);HC[id]=data;drawSp()};
-function drawRev(){const box=$("#revBox");
-  if(ST.reviews_open!=="true"){box.innerHTML='<div class="card"><p class="muted" style="margin:0">Attendee reviews will open after the event. Come back on 12 November!</p></div>';return}
+const revOpen=()=>ST.reviews_open==="true"||(!!ST.reviews_open_at&&Date.now()>=Date.parse(ST.reviews_open_at));let wasOpen=false;
+function drawRev(){const box=$("#revBox");wasOpen=revOpen();
+  if(!wasOpen){box.innerHTML='<div class="card"><p class="muted" style="margin:0">Attendee reviews will open after the event. Come back on 12 November!</p></div>';return}
   box.innerHTML=`<form id="rf"><label>Name<input name="n" maxlength="60" required></label><label>Rating<select name="r"><option>5</option><option>4</option><option>3</option><option>2</option><option>1</option></select></label><label>Your review<textarea name="x" rows="3" maxlength="500" required></textarea></label><input name="hp" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true"><button class="btn" type="submit">Post review</button></form><div class="grid two" style="margin-top:24px">${REV.length?REV.map(r=>`<div class="card ${r.pinned?"pin":""}">${r.pinned?"📌 Pinned<br>":""}<span class="stars">${"★".repeat(r.rating)}${"☆".repeat(5-r.rating)}</span><p>${esc(r.body)}</p><small class="muted">— ${esc(r.name)} · <a href="#reviews" data-rep="${r.id}">${r.reported?"Reported":"Report"}</a></small></div>`).join(""):'<p class="muted">No reviews yet. Be the first!</p>'}</div>`;
   $("#rf").onsubmit=async e=>{e.preventDefault();const f=e.target;if(f.hp.value)return;const btn=f.querySelector("button");if(btn.disabled)return;btn.disabled=true;
     const {error}=await sb.rpc("submit_review",{p_name:f.n.value,p_rating:+f.r.value,p_body:f.x.value});btn.disabled=false;
@@ -123,7 +124,7 @@ $("#reg").onsubmit=async e=>{e.preventDefault();const f=e.target,btn=$("#regBtn"
   btn.disabled=true;btn.textContent="Registering…";
   try{const {data,error}=await sb.rpc("register_attendee",{p_name:name,p_email:email,p_phone:phone,p_whatsapp:wa,p_age:f.age.value,p_goal:f.learn.value.trim(),p_consent:true});if(error)throw error;
     const link=data&&/^https:\/\/chat\.whatsapp\.com\//.test(data.link||"")?`<a class="btn" href="${esc(data.link)}" target="_blank" rel="noopener">Join the WhatsApp group</a>`:'<p class="muted">WhatsApp group link coming soon.</p>';
-    $("#regMsg").innerHTML=`<div class="ok"><strong>${data&&data.already?"You’re already registered, ":"You’re in, "}${esc(name.split(" ")[0])}! 🎉</strong><p>See you on 12 November at 7:00 PM WAT.</p>${link}</div>`;f.style.display="none"}
+    $("#regMsg").innerHTML=`<div class="ok"><strong>${data&&data.already?"You’re already registered, ":"You’re in, "}${esc(name.split(" ")[0])}! 🎉</strong><p>See you on 12 November at 7:00 PM WAT.</p>${link}</div>`;f.style.display="none";$("#regMsg").scrollIntoView({behavior:"smooth",block:"center"})}
   catch(err){$("#regMsg").innerHTML='<p class="err" role="alert">Something went wrong. Check your details and connection, then try again.</p>';btn.disabled=false;btn.textContent="Register Now"}};
 
 async function drawAdm(){const a=$("#adm");a.textContent="Loading…";
@@ -137,14 +138,14 @@ async function drawAdm(){const a=$("#adm");a.textContent="Loading…";
   const regs=rg.data||[],tot=(vs.data||[]).reduce((s,v)=>s+v.total,0),uq=(vs.data||[]).reduce((s,v)=>s+v.uniq,0),P=Object.fromEntries((ps.data||[]).map(x=>[x.key,x.value]));
   const hb=await sb.rpc("heart_counts"),H=Object.fromEntries((hb.data||[]).map(x=>[x.speaker_id,x.n]));
   a.innerHTML=`<div class="box"><b>Overview</b><div>Registrations: ${regs.length} · Total visits: ${tot} · Unique browsers (per day, summed): ${uq} · Conversion: ${uq?(regs.length/uq*100).toFixed(1)+"%":"n/a"}</div><small>Unique counts are per browser per day, not per person. Visitors who don’t register are never identified.</small></div>
-  <div class="box"><b>Settings</b><label>WhatsApp group link<input id="aw" value="${esc(P.whatsapp_link)}"></label><label class="chk"><input type="checkbox" id="ao" ${ST.reviews_open==="true"?"checked":""}> Reviews open</label><label>Host bio<textarea id="ab" rows="4">${esc(ST.host_bio)}</textarea></label><label>Host photo<input type="file" accept="image/*" id="ap"></label><button class="btn blue sm" id="as">Save settings</button></div>
+  <div class="box"><b>Settings</b><label>WhatsApp group link<input id="aw" value="${esc(P.whatsapp_link)}"></label><label class="chk"><input type="checkbox" id="ao" ${ST.reviews_open==="true"?"checked":""}> Open reviews now (manual switch)</label><label>Reviews open automatically at (Lagos time)<input type="datetime-local" id="at" value="${esc((ST.reviews_open_at||"").slice(0,16))}"></label><label>Host bio<textarea id="ab" rows="4">${esc(ST.host_bio)}</textarea></label><label>Host photo<input type="file" accept="image/*" id="ap"></label><button class="btn blue sm" id="as">Save settings</button></div>
   ${(sp.data||[]).map(s=>`<div class="box"><b>Speaker (${H[s.id]||0} 💙)</b><input data-k="name" data-i="${s.id}" value="${esc(s.name)}"><input data-k="topic" data-i="${s.id}" value="${esc(s.topic)}"><textarea data-k="bio" data-i="${s.id}" rows="2">${esc(s.bio)}</textarea><textarea data-k="description" data-i="${s.id}" rows="3">${esc(s.description)}</textarea><input type="file" accept="image/*" data-p="${s.id}"></div>`).join("")}
   <div class="box"><b>Reviews</b>${(rv.data||[]).map(r=>`<div>${esc(r.name)} (${r.rating}★): ${esc(r.body)} ${r.reported?"⚠️ reported":""} <button data-pin="${r.id}" data-v="${r.pinned}">${r.pinned?"Unpin":"Pin"}</button> <button data-del="${r.id}">Delete</button></div>`).join("")||"None yet."}</div>
   <div class="box"><b>Registrations</b><button class="btn blue sm" id="csv">Export CSV</button><input id="q" placeholder="Search…"><div class="scroll"><table id="tb"></table></div></div><button class="btn blue sm" id="so">Sign out</button>`;
   const tb=()=>{const q=$("#q").value.toLowerCase();$("#tb").innerHTML="<tr><th>Name<th>Email<th>Phone<th>WhatsApp<th>Age<th>Goal<th>When</tr>"+regs.filter(r=>JSON.stringify(r).toLowerCase().includes(q)).map(r=>`<tr><td>${esc(r.full_name)}<td>${esc(r.email)}<td>${esc(r.phone)}<td>${esc(r.whatsapp)}<td>${esc(r.age_range)}<td>${esc(r.goal)}<td>${r.created_at.slice(0,10)}</tr>`).join("")};tb();$("#q").oninput=tb;
   const done=async(p,msg)=>{const {error}=await p;if(error)alert("Failed: "+error.message);else{if(msg)alert(msg);await load();drawAdm()}};
   const up=async(file,name)=>{const ext=(file.name.split(".").pop()||"jpg").toLowerCase().replace(/[^a-z0-9]/g,"");const path=`${name}-${Date.now()}.${ext}`;const {error}=await sb.storage.from("public-images").upload(path,file,{upsert:true});if(error)throw error;return sb.storage.from("public-images").getPublicUrl(path).data.publicUrl};
-  $("#as").onclick=async()=>{try{let rows=[{key:"reviews_open",value:$("#ao").checked?"true":"false"},{key:"host_bio",value:$("#ab").value}];const f=$("#ap").files[0];if(f)rows.push({key:"host_photo",value:await up(f,"host")});
+  $("#as").onclick=async()=>{try{let rows=[{key:"reviews_open",value:$("#ao").checked?"true":"false"},{key:"host_bio",value:$("#ab").value},{key:"reviews_open_at",value:$("#at").value?$("#at").value+":00+01:00":""}];const f=$("#ap").files[0];if(f)rows.push({key:"host_photo",value:await up(f,"host")});
     const r1=await sb.from("settings").upsert(rows),r2=await sb.from("private_settings").upsert([{key:"whatsapp_link",value:$("#aw").value.trim()}]);if(r1.error||r2.error)throw (r1.error||r2.error);alert("Saved");await load();drawAdm()}catch(e){alert("Failed: "+e.message)}};
   a.querySelectorAll("[data-k]").forEach(el=>el.onchange=()=>done(sb.from("speakers").update({[el.dataset.k]:el.value}).eq("id",el.dataset.i)));
   a.querySelectorAll("[data-p]").forEach(el=>el.onchange=async()=>{try{const u=await up(el.files[0],"speaker-"+el.dataset.p);done(sb.from("speakers").update({image_url:u}).eq("id",el.dataset.p),"Photo updated")}catch(e){alert("Upload failed: "+e.message)}});
@@ -156,5 +157,6 @@ async function drawAdm(){const a=$("#adm");a.textContent="Loading…";
 function route(){const on=location.hash==="#admin";$("#admin").classList.toggle("open",on);if(on)drawAdm()}
 addEventListener("hashchange",route);route();load();
 try{const seen=localStorage.getItem("h20s_seen");localStorage.setItem("h20s_seen","1");sb.rpc("track_visit",{p_new:!seen})}catch(e){}
+setInterval(()=>{if(revOpen()!==wasOpen)drawRev()},15000);
 const io=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add("in")),{threshold:.1});document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
 </script></body></html>
